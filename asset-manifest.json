@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/termin-management-arika/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/termin-management-arika/static/js/main.5a3bf4ce.chunk.js",
+    "main.js.map": "/termin-management-arika/static/js/main.5a3bf4ce.chunk.js.map",
+    "runtime-main.js": "/termin-management-arika/static/js/runtime-main.812ed717.js",
+    "runtime-main.js.map": "/termin-management-arika/static/js/runtime-main.812ed717.js.map",
+    "static/js/2.b2553273.chunk.js": "/termin-management-arika/static/js/2.b2553273.chunk.js",
+    "static/js/2.b2553273.chunk.js.map": "/termin-management-arika/static/js/2.b2553273.chunk.js.map",
+    "static/js/3.8c893693.chunk.js": "/termin-management-arika/static/js/3.8c893693.chunk.js",
+    "static/js/3.8c893693.chunk.js.map": "/termin-management-arika/static/js/3.8c893693.chunk.js.map",
+    "index.html": "/termin-management-arika/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/termin-management-arika/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.b2553273.chunk.js.LICENSE.txt": "/termin-management-arika/static/js/2.b2553273.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/termin-management-arika/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.812ed717.js",
+    "static/js/2.b2553273.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.5a3bf4ce.chunk.js"
+  ]
+}

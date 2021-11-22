@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {Paper, List, ListItem} from '@mui/material';
+import {Paper, List, Typography} from '@mui/material';
+import ListItemComponent from './ListItemComponent';
 
 const dummy_data = {
     "moeglicheTermine": {
@@ -17,6 +18,7 @@ const dummy_data = {
     }
 }
 
+
 export default function Main() {
 
     const [offeneTermine, setOffeneTermine] = useState([]);
@@ -25,7 +27,7 @@ export default function Main() {
         let data = []
         for (let terminKey in dummy_data["moeglicheTermine"]) {
             if (checkIfTerminOffen(terminKey, dummy_data["geschlosseneTermine"])) {
-                data.push(dummy_data["moeglicheTermine"][terminKey]["datum"])
+                data.push(new Date(dummy_data["moeglicheTermine"][terminKey]["datum"]))
             }
         }
         setOffeneTermine(data);
@@ -42,28 +44,33 @@ export default function Main() {
         const items = [];
         for (let termin of offeneTermine) {
             items.push(
-                <ListItem>{termin}</ListItem>
+                <ListItemComponent key={Date.parse(termin)} termin={termin}/>
             )
         }
         return items;
     }
 
     return(
-        <Paper
-            sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: 2
-            }}
-        >
-            <List
-                xs={{
-                    // width: "20rem"
+        <Paper elevation={0}>
+            <Typography variant="h3">Terminbuchung für Hololens Testcase</Typography>
+            <Typography>
+                Vielen Dank für das Interesse an unserer Evaluation mit der Hololens. 
+                Bitte bucht unten einen Termin, an dem ihr Zeit habt und an der Evaluation teilnehmen könnt.
+            </Typography>
+            <Paper
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    margin: 2
                 }}
+            >
+            <List
+                sx={{display: "block"}}
             >
                 {createListItems()}
             </List>
+            </Paper>
         </Paper>
     )
 }

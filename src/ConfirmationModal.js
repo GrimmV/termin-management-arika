@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BookingConfirmation from './BookingConfirmation';
 import BookingRequest from './BookingRequest';
+import { reserveTime } from './fetching';
 
 
 export default function ConfirmationModal(props) {
@@ -9,8 +10,13 @@ export default function ConfirmationModal(props) {
     const [submittedIdentifier, setSubmittedIdentifier] = useState("");
 
     const confirmBooking = (identifier) => {
-        setBookingConfirmed(true);
-        setSubmittedIdentifier(identifier);
+        
+        reserveTime(props.termin_id, identifier).then(response => {
+            if (response.ok) {
+                setBookingConfirmed(true);
+                setSubmittedIdentifier(identifier);
+            }
+        });
     }
 
     return(

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Paper, List, Typography} from '@mui/material';
 import ListItemComponent from './ListItemComponent';
+import { getPossibleTimes } from './fetching';
 
 const dummy_data = {
     "moeglicheTermine": {
@@ -21,16 +22,16 @@ const dummy_data = {
 
 export default function Main() {
 
-    const [offeneTermine, setOffeneTermine] = useState([]);
+    const [offeneTermine, setOffeneTermine] = useState({});
 
     useEffect(() => {
-        let data = []
-        for (let terminKey in dummy_data["moeglicheTermine"]) {
-            if (checkIfTerminOffen(terminKey, dummy_data["geschlosseneTermine"])) {
-                data.push(new Date(dummy_data["moeglicheTermine"][terminKey]["datum"]))
+        let data = {}
+        getPossibleTimes().then(response => {
+            for (let terminKey in response) {
+                data[terminKey] = response[terminKey]["datum"]
             }
-        }
-        setOffeneTermine(data);
+            setOffeneTermine(data);
+        })
     }, [])
 
     const checkIfTerminOffen = (offenerTerminKey, geschlosseneTermine) => {
@@ -42,9 +43,9 @@ export default function Main() {
 
     const createListItems = () => {
         const items = [];
-        for (let termin of offeneTermine) {
+        for (let terminKey in offeneTermine) {
             items.push(
-                <ListItemComponent key={Date.parse(termin)} termin={termin}/>
+                <ListItemComponent key={terminKey} termin={new Date(offeneTermine[terminKey])} termin_id={terminKey}/>
             )
         }
         return items;

@@ -48,7 +48,7 @@ export default function ListItemComponent(props) {
                 open={open}
                 onClose={handleClose}
             >
-                <ConfirmationModal handleClose={handleClose} date={formatDate(props.termin)}/>
+                <ConfirmationModal handleClose={handleClose} date={formatDate(props.termin)} termin_id={props.termin_id}/>
             </Modal>
         </Paper>
     )

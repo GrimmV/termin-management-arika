@@ -53,9 +53,9 @@ export default function Main() {
     return(
         <Paper elevation={0}>
             <Typography variant="h3">Terminbuchung für Hololens Testcase</Typography>
-            <Typography>
+            <Typography sx={{margin: 2}}>
                 Vielen Dank für das Interesse an unserer Evaluation mit der Hololens. 
-                Bitte bucht unten einen Termin, an dem ihr Zeit habt und an der Evaluation teilnehmen könnt.
+                Bitte bucht unten einen Termin, an dem ihr Zeit habt, um an der Evaluation teilzunehmen.
             </Typography>
             <Paper
                 sx={{

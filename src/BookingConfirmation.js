@@ -16,17 +16,36 @@ const style = {
 };
 
 export default function BookingConfirmation(props) {
-    return(
-        <Paper sx={style}>
-            <Typography align="center">
-                Vielen Dank {props.nick}!
-            </Typography>
-            <Typography align="center">
-                Du bist jetzt für den {props.date} gebucht.
-            </Typography>
-            <Button
-                sx={{marginTop: 2}}
-                variant="contained" onClick={props.handleClose}>Verstanden</Button>
-        </Paper>
-    )
+    if (props.bookingConfirmed) {
+        return(
+            <Paper sx={style}>
+                <Typography align="center">
+                    Vielen Dank {props.nick}!
+                </Typography>
+                <Typography align="center">
+                    Du bist jetzt für den {props.date} gebucht.
+                </Typography>
+                <Button
+                    sx={{marginTop: 2}}
+                    variant="contained" onClick={props.handleClose}
+                >Verstanden
+                </Button>
+            </Paper>
+        )
+    } else {
+        return(
+            <Paper sx={style}>
+                <Typography align="center">
+                    Upps, das tut uns leid {props.nick}!
+                </Typography>
+                <Typography align="center">
+                    Leider ist der Termin mitlerweile nicht mehr verfügbar.
+                </Typography>
+                <Button
+                    sx={{marginTop: 2}}
+                    variant="contained" onClick={props.handleClose}>Zu den Terminen
+                    </Button>
+            </Paper>
+        )
+    }
 }

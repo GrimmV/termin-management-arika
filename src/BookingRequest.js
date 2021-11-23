@@ -47,7 +47,7 @@ export default function BookingRequest(props) {
                 sx={{marginBottom: 2}}
             >Bitte gib einen (fiktiven) Namen zur Buchung an, um dich damit identifizieren zu können</Typography>
             <TextField value={userIdentifier} onChange={e => setUserIdentifier(e.target.value)} />
-            <Button onClick={handleBooking} variant="contained"
+            <Button disabled={props.processingRequest} onClick={handleBooking} variant="contained"
                 sx={{
                     marginTop: 2
                 }}

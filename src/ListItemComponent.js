@@ -11,7 +11,10 @@ export default function ListItemComponent(props) {
     
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleClose = () => {
+        props.resetOffeneTermine();
+        setOpen(false);
+    }
 
     const formatDate = (date) => {
         return(
